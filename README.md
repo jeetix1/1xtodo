@@ -9,6 +9,7 @@ This project is just started and does not do much atm.
 - ✨Uses MySQL if you are serious, not Sirius!
 - ✨Missing option to delete or complete tasks :D
 - ✨Has other options!
+- ⚠️WARNING: This code has yet to be perfected before being runned on a publicly available server. One of the BIG amazing feutures is that sql injection seem higly possible at current state. Use at own risk. 
 
 # Installlation instuctions...
 DB queries:
