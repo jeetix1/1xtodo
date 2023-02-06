@@ -16,9 +16,8 @@
   <ul>
     <?php
       foreach ($tasks as $task) {
-        echo "<li>$task</li>";
+        echo "<li>$task <form action='todo.php' method='post'><input type='hidden' name='completed_task' value='$task'><input type='submit' value='Complete'></form></li>";
       }
     ?>
   </ul>
 </body>
-</html>
