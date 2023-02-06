@@ -1,8 +1,9 @@
 <?php
   if (isset($_POST['task'])) {
+    $timestamp = date('Y-m-d H:i:s');
     $tasks = file_get_contents('tasks.txt');
     $tasks = explode("\n", $tasks);
-    $tasks[] = $_POST['task'];
+    $tasks[] = $_POST['task'] . "<br><em><b>Created: </b>" . " $timestamp </em>";
     $tasks = implode("\n", $tasks);
     file_put_contents('tasks.txt', $tasks);
   } else if (isset($_POST['completed_task'])) {
