@@ -37,3 +37,5 @@ $username = "somethingusernamish";
 $password = "somethingpasswordy-notpassword123!";
 $dbname = "somethingdatabasenameish";
 ```
+# Screenshot
+![](https://prod.1x.no/img/tasklistscreenshot202302061038.png)
