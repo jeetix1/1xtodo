@@ -39,6 +39,36 @@
     background: #1e90ff;
   }
 
+  .reopen {
+    border-color: #000000;
+    background: #f8cac6;
+    color: black;
+  }
+  
+  .reopen:hover {
+    background: #e03e2d;
+  }
+
+  .finish {
+    border-color: #000000;
+    background: #bfedd2;
+    color: black;
+  }
+  
+  .finish:hover {
+    background: #2dc26b;
+  }
+
+  .edit {
+    border-color: #000000;
+    background: #fbeeb8;
+    color: black;
+  }
+  
+  .edit:hover {
+    background: #f1c40f;
+  }
+
   .btn {
     border-radius: 5px;
   }
