@@ -1,5 +1,6 @@
 <?php
-  session_start();
+  $tasks = file_get_contents('tasks.txt');
+  $tasks = explode("\n", $tasks);
 ?>
 <html>
 <head>
@@ -14,10 +15,8 @@
   <h2>Tasks:</h2>
   <ul>
     <?php
-      if (isset($_SESSION['tasks'])) {
-        foreach ($_SESSION['tasks'] as $task) {
-          echo "<li>$task</li>";
-        }
+      foreach ($tasks as $task) {
+        echo "<li>$task</li>";
       }
     ?>
   </ul>
