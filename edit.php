@@ -49,7 +49,7 @@ $tasks = mysqli_query($conn, $query);
 </head>
 <body>
     <h1>Task List</h1>
-    <button class="btn default" onclick="window.location.href='browse.php'">Browse all</button>
+    <?php include 'menu.php'; ?>
     <?php if (isset($_GET['edit_task'])) { ?>
         <form action="edit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">

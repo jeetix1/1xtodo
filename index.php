@@ -60,7 +60,7 @@ $tasks = mysqli_query($conn, $query);
 </head>
 <body>
     <h1>Task List</h1>
-    <button class="btn default" onclick="window.location.href='browse.php'">Browse all</button>
+    <?php include 'menu.php'; ?>
     <form action="index.php" method="post">
         <input type="text" name="task" placeholder="Add a task...">
         <input type="submit" name="submit" value="Add Task">

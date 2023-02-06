@@ -32,7 +32,7 @@ $tasks = mysqli_query($conn, $query);
 </head>
 <body>
     <h1>Task List</h1>
-    <button class="btn default" onclick="window.location.href='browse.php'">Browse all</button>
+    <?php include 'menu.php'; ?>
     <table>
         <tr>
             <th>ID</th>
