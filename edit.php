@@ -31,13 +31,25 @@ $tasks = mysqli_query($conn, $query);
 <html>
 <head>
     <title>Task List</title>
+    <!-- Include the TinyMCE library -->
+    <script src="https://cdn.tiny.cloud/1/qjavekyfrmwellhujyp3l9wlss8g6rdxgqyamfkcgxrmmmd2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- Initialize the TinyMCE editor -->
+    <script>
+        tinymce.init({
+            selector: 'textarea',  // Select the textarea element to apply the editor to
+            plugins: 'link code',  // Add the link and code plugins to enable adding links and code snippets
+            toolbar: 'bold italic underline strikethrough | link | alignleft aligncenter alignright alignjustify | checklist numlist bullist indent outdent | forecolor backcolor | removeformat',  // Customize the toolbar to include bold, italic, underline, and link buttons
+            menubar: false  // Hide the menu bar
+        });
+    </script>
 </head>
 <body>
     <h1>Task List</h1>
     <?php if (isset($_GET['edit_task'])) { ?>
         <form action="edit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <textarea name="task" rows="5" cols="50"><?php echo $task['task']; ?></textarea>
+            <!-- Add the class to the textarea -->
+            <textarea class="tinymce" name="task" rows="30" cols="50"><?php echo $task['task']; ?></textarea>
             <input type="submit" name="submit" value="Save Task">
         </form>
     <?php } else { ?>
@@ -62,6 +74,7 @@ $tasks = mysqli_query($conn, $query);
     <?php } ?>
 </body>
 </html>
+
 
 
 
