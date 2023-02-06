@@ -19,6 +19,9 @@ if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $query = "UPDATE tasks SET task = '$task' WHERE id = $id";
     mysqli_query($conn, $query);
+    $log_event = "Task edited: " . $task;
+    $query = "INSERT INTO log (task_id, event) VALUES ($id, '$log_event')";
+    mysqli_query($conn, $query);
     header("Location: index.php");
 }
 
@@ -31,6 +34,7 @@ $tasks = mysqli_query($conn, $query);
 <html>
 <head>
     <title>Task List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Include the TinyMCE library -->
     <script src="https://cdn.tiny.cloud/1/qjavekyfrmwellhujyp3l9wlss8g6rdxgqyamfkcgxrmmmd2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Initialize the TinyMCE editor -->
@@ -45,6 +49,7 @@ $tasks = mysqli_query($conn, $query);
 </head>
 <body>
     <h1>Task List</h1>
+    <button class="btn default" onclick="window.location.href='browse.php'">Browse all</button>
     <?php if (isset($_GET['edit_task'])) { ?>
         <form action="edit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -52,6 +57,24 @@ $tasks = mysqli_query($conn, $query);
             <textarea class="tinymce" name="task" rows="30" cols="50"><?php echo $task['task']; ?></textarea>
             <input type="submit" name="submit" value="Save Task">
         </form>
+
+         <!-- Add the code for listing log events related to the task -->
+         <h2>Log Events</h2>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+            </tr>
+            <?php 
+                $query = "SELECT * FROM log WHERE task_id = $id";
+                $logs = mysqli_query($conn, $query);
+                while ($log = mysqli_fetch_assoc($logs)) { ?>
+                <tr>
+                    <td><?php echo $log['event']; ?></td>
+                    <td><?php echo $log['timestamp']; ?></td>
+                </tr>
+            <?php } ?>
+        </table>
     <?php } else { ?>
         <table>
             <tr>
@@ -71,6 +94,7 @@ $tasks = mysqli_query($conn, $query);
                 </tr>
             <?php } ?>
         </table>
+        
     <?php } ?>
 </body>
 </html>
