@@ -11,23 +11,29 @@ This project is just started and does not do much atm.
 - ✨Has other options!
 
 # Installlation instuctions...
-- DB queries:
-`CREATE TABLE tasks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  task VARCHAR(2048) NOT NULL,
-  status ENUM('incomplete', 'completed') NOT NULL DEFAULT 'incomplete'
-);` 
-`CREATE TABLE log (
+DB queries:
+```sql
+CREATE TABLE log (
   id INT AUTO_INCREMENT PRIMARY KEY,
   task_id INT NOT NULL,
   event VARCHAR(2048) NOT NULL,
   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);` 
-- Sample of 1xtodo-dbcon.php that shoul be out of reach from public
+);
+```
+
+```sql
+CREATE TABLE tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  task VARCHAR(2048) NOT NULL,
+  status ENUM('incomplete', 'completed') NOT NULL DEFAULT 'incomplete'
+);
+```
+
+Sample of **1xtodo-dbcon.php** is referenced to but not in the repository for a milion reasons that shoul be out of reach from public.
 ```php
 <?php
 $servername = "localhost";
 $username = "somethingusernamish";
-$password = "somethingpasswordy-notpassword123!;
+$password = "somethingpasswordy-notpassword123!";
 $dbname = "somethingdatabasenameish";
 ```
