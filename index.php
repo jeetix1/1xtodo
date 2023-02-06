@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <html>
 <head>
   <title>To-Do List</title>
@@ -11,12 +14,10 @@
   <h2>Tasks:</h2>
   <ul>
     <?php
-      $tasks = array();
-      if (isset($_POST['task'])) {
-        array_push($tasks, $_POST['task']);
-      }
-      foreach ($tasks as $task) {
-        echo "<li>$task</li>";
+      if (isset($_SESSION['tasks'])) {
+        foreach ($_SESSION['tasks'] as $task) {
+          echo "<li>$task</li>";
+        }
       }
     ?>
   </ul>
