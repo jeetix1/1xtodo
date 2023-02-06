@@ -5,13 +5,45 @@ require_once '../../1xtodo-dbcon.php';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+// Reopen task
+if (isset($_GET['reopen_task'])) {
+    $id = $_GET['reopen_task'];
+    $query = "UPDATE tasks SET status = 'incomplete' WHERE id = $id";
+    mysqli_query($conn, $query);
+    $log_event = "Task reopened: " . $id;
+    $query = "INSERT INTO log (task_id, event) VALUES ($id, '$log_event')";
+    mysqli_query($conn, $query);
+}
+
 // Check if the form has been submitted
 if (isset($_POST['submit'])) {
     $task = mysqli_real_escape_string($conn, $_POST['task']);
     $id = $_POST['id'];
     $query = "UPDATE tasks SET task = '$task' WHERE id = $id";
     mysqli_query($conn, $query);
-    header("Location: index.php");
+    header("Location: browse.php");
+}
+
+// Check if the finish task button has been clicked
+if (isset($_GET['fin_task'])) {
+    $id = $_GET['fin_task'];
+    $query = "UPDATE tasks SET status = 'complete' WHERE id = $id";
+    mysqli_query($conn, $query);
+    $log_event = "Task finished: " . $id;
+    $query = "INSERT INTO log (task_id, event) VALUES ($id, '$log_event')";
+    mysqli_query($conn, $query);
+}
+
+// Change task status to "completed"
+if (isset($_GET['fin_task'])) {
+    $id = $_GET['fin_task'];
+    $sql = "UPDATE tasks SET status='completed' WHERE id=$id";
+    if (mysqli_query($conn, $sql)) {
+        header('Location: browse.php');
+        exit;
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 }
 
 // Get all the tasks from the database
@@ -51,10 +83,12 @@ $tasks = mysqli_query($conn, $query);
                 <td><?php echo $task['status']; ?></td>
                 <td>
                     <?php if ($task['status'] == 'incomplete') { ?>
-                        <a href="edit.php?edit_task=<?php echo $task['task_id']; ?>">Edit</a>
+                        <button class="btn edit" onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
+                        <button class="btn finish" onclick="window.location.href='browse.php?fin_task=<?php echo $task['task_id']; ?>'">Finish</button>
                     <?php } ?>
                     <?php if ($task['status'] == 'completed') { ?>
-                        <a href="index.php?reopen_task=<?php echo $task['task_id']; ?>">Reopen</a>
+                        <button class="btn edit" onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
+                        <button class="btn reopen" onclick="window.location.href='browse.php?reopen_task=<?php echo $task['task_id']; ?>'">Reopen</button>
                     <?php } ?>
 
                     
