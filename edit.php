@@ -35,21 +35,50 @@ $tasks = mysqli_query($conn, $query);
 <head>
     <title>Task List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-icons-1.10.3/fonts/bootstrap-icons.css">
     <!-- Include the TinyMCE library -->
     <script src="https://cdn.tiny.cloud/1/qjavekyfrmwellhujyp3l9wlss8g6rdxgqyamfkcgxrmmmd2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Initialize the TinyMCE editor -->
-    <script>
+    <script type="text/javascript">
         tinymce.init({
-            selector: 'textarea',  // Select the textarea element to apply the editor to
-            plugins: 'link code',  // Add the link and code plugins to enable adding links and code snippets
-            toolbar: 'bold italic underline strikethrough | link | alignleft aligncenter alignright alignjustify | checklist numlist bullist indent outdent | forecolor backcolor | removeformat',  // Customize the toolbar to include bold, italic, underline, and link buttons
+            selector: "textarea",  // Select the textarea element to apply the editor to
+            skin: "oxide-dark",
+            conent_css: "dark",
+            plugins: "link code",  // Add the link and code plugins to enable adding links and code snippets
+            toolbar: "bold italic underline strikethrough | link | alignleft aligncenter alignright alignjustify | checklist numlist bullist indent outdent | forecolor backcolor | removeformat",  // Customize the toolbar to include bold, italic, underline, and link buttons
             menubar: false  // Hide the menu bar
+            textarea: "dark" 
         });
     </script>
+    
+
+
+    <script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    skin: "oxide-dark",
+    content_css: "dark",
+    plugins: "link code",
+    toolbar: "bold italic underline strikethrough | link | alignleft aligncenter alignright alignjustify | checklist numlist bullist indent outdent | forecolor backcolor | removeformat",
+    menubar: false  // Hide the menu bar
+});
+</script>
+
+
+
+
+
+
 </head>
 <body>
-    <h1>Task List</h1>
-    <?php include 'menu.php'; ?>
+    <div class="grid ">
+        <div class="headerbox">
+        <div class="headermenu">
+            <?php include 'menu.php'; ?>
+        </div>
+    </div>
+    <div class="edit-task">
+        <h1>Editor</h1>
     <?php if (isset($_GET['edit_task'])) { ?>
         <form action="edit.php" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -57,6 +86,7 @@ $tasks = mysqli_query($conn, $query);
             <textarea class="tinymce" name="task" rows="30" cols="50"><?php echo $task['task']; ?></textarea>
             <input type="submit" name="submit" value="Save Task">
         </form>
+    </div>
 
          <!-- Add the code for listing log events related to the task -->
          <h2>Log Events</h2>

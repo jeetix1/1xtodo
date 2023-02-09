@@ -204,3 +204,6 @@ body {
   border-radius: 20px;
 }
 
+.mce-content-body {
+  background: #eeeeee
+}
