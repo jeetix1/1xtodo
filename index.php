@@ -57,14 +57,20 @@ $tasks = mysqli_query($conn, $query);
 <head>
     <title>Task List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-icons-1.10.3/fonts/bootstrap-icons.css">
 </head>
 <body>
-    <!-- <h1>Task List</h1> -->
-    <?php include 'menu.php'; ?>
+    <div class="grid ">
+        <div class="headerbox">
+        <div class="headermenu">
+            <?php include 'menu.php'; ?>
+        </div>
+    </div>
     <form action="index.php" method="post">
         <input type="text" name="task" placeholder="Add a task...">
         <input type="submit" name="submit" value="Add Task">
     </form>
+    <div class="tasklist">
     <table>
         <tr>
             <th>Task</th>
@@ -75,9 +81,10 @@ $tasks = mysqli_query($conn, $query);
             <tr>
                 <td><?php echo $task['task']; ?></td>
                 <td><?php echo $task['status']; ?></td>
-                <td>
+                <td class="tdtaction">
                     <?php if ($task['status'] == 'incomplete') { ?>
-                        <a href="index.php?fin_task=<?php echo $task['id']; ?>">Finish</a> | <a href="edit.php?edit_task=<?php echo $task['id']; ?>">Edit</a>
+                        <button class="btn finish" onclick="window.location.href='index.php?fin_task=<?php echo $task['id']; ?>'">Finish</button>
+                        <button class="btn edit" onclick="window.location.href='edit.php?edit_task=<?php echo $task['id']; ?>'">Edit</button>
                     <?php } ?>
                     <?php if ($task['status'] == 'completed') { ?>
                         <a href="index.php?reopen_task=<?php echo $task['id']; ?>">Reopen</a>
