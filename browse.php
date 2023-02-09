@@ -67,7 +67,6 @@ $tasks = mysqli_query($conn, $query);
 <body>
     <div class="grid ">
         <div class="headerbox">
-            <h1>Task List  </h1>
         <div class="headermenu">
             <?php include 'menu.php'; ?>
         </div>

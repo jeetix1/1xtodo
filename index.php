@@ -59,7 +59,7 @@ $tasks = mysqli_query($conn, $query);
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Task List</h1>
+    <!-- <h1>Task List</h1> -->
     <?php include 'menu.php'; ?>
     <form action="index.php" method="post">
         <input type="text" name="task" placeholder="Add a task...">

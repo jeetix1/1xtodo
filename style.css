@@ -34,21 +34,17 @@ body {
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
   background-color: #323C44;
-  padding-left: 1em;
+  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 1em;
+  margin-bottom: 20px;
   display: flex;
   justify-content: left;
   font-size: 15px;
   align-items: center;
-}
-
-.headerbox h1 {
+  align-self: center;
   font-size: 30px;
   font-weight: 300;
   color: #F5F7FB;
-  align-self: center;
-  margin-right: 2em;
   float: inline-start;
 }
 
@@ -133,15 +129,14 @@ body {
   background: #1e90ff;
 }
 
-.headmenu {
+/* .headmenu {
   background: #f5f7fb70;
   border-color: transparent;
   color: black;
   height: 50px;
-  /* border-radius: 10px; */
   font-size: 20px;
   margin-top: 15px;
-}
+} */
 
 .headmenu:hover {
   background: #f5f7fbcb;
@@ -208,3 +203,4 @@ body {
   background-color: #B0EE97;
   border-radius: 20px;
 }
+
