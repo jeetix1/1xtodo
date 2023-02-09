@@ -84,7 +84,7 @@ $tasks = mysqli_query($conn, $query);
             </tr>
             <?php while ($task = mysqli_fetch_assoc($tasks)) { ?>
                 <tr>
-                    <td>
+                    <td class="tdtid">
                         <?php echo $task['task_id']; ?>
                     </td>
                     <td>
@@ -99,7 +99,7 @@ $tasks = mysqli_query($conn, $query);
                     <td>
                         <?php echo $task['status']; ?>
                     </td>
-                    <td class="actionbtn">
+                    <td class="tdtaction">
                         <?php if ($task['status'] == 'incomplete') { ?>
                             <button class="btn edit"
                                 onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>

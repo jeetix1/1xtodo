@@ -78,8 +78,12 @@ tbody th {
   padding: 10px;
 }
 
-.actionbtn {
+.tdtaction {
   text-align: right;
+}
+
+.tdtid {
+  text-align: center;
 }
 
 tr:nth-child(even){background-color: transparent}
