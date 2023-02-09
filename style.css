@@ -26,6 +26,8 @@ body {
     "headerbox   headermenu  1xsettings"
     "tasklist"
     "bottomline";
+    min-width: fit-content(20em);
+    max-width: 90rem;
 }
 
 .headerbox {
@@ -64,6 +66,8 @@ body {
 table {
   background-color: #323C44;
   border-collapse:collapse; 
+  width: 100%;
+  color: #91a0af;
 }
 
 tbody th {
@@ -72,11 +76,11 @@ tbody th {
   font-weight: 300;
   color: #F5F7FB;
   padding: 10px;
- 
 }
 
 tr:nth-child(even){background-color: transparent}
 tr:nth-child(odd){background-color: #ffffff10}
+/* tr:hover{border: dashed red;} */
 
 /* tbody tr:nth-child(odd) {
   background-color: #7fb8f1;

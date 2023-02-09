@@ -80,7 +80,7 @@ $tasks = mysqli_query($conn, $query);
                 <th>Completion Date</th>
                 <th>Task</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th style="width: 120px">Action</th>
             </tr>
             <?php while ($task = mysqli_fetch_assoc($tasks)) { ?>
                 <tr>
