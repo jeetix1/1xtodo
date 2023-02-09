@@ -136,12 +136,12 @@ body {
 
 .reopen {
   border-color: #000000;
-  background: #f8cac6;
+  background: #6b7684;
   color: black;
 }
 
 .reopen:hover {
-  background: #e03e2d;
+  background: #e7d697;
 }
 
 .finish {
@@ -156,12 +156,12 @@ body {
 
 .edit {
   border-color: #000000;
-  background: #fbeeb8;
+  background: #6b7684;
   color: black;
 }
 
 .edit:hover {
-  background: #f1c40f;
+  background: #aec0d6;
 }
 
 /* .btn {
