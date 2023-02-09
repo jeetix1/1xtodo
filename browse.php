@@ -63,7 +63,6 @@ $tasks = mysqli_query($conn, $query);
     <title>Task List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap-icons-1.10.3/fonts/bootstrap-icons.css">
-
 <body>
     <div class="grid ">
         <div class="headerbox">
