@@ -40,6 +40,7 @@ body {
   display: flex;
   justify-content: left;
   font-size: 15px;
+  align-items: center;
 }
 
 .headerbox h1 {
@@ -179,3 +180,31 @@ body {
 /* .btn {
   border-radius: 5px;
 } */
+
+
+
+.menu-icon-bar {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-icon-bar a {
+  float: left;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #ABAFB5;
+  font-size: 36px;
+  height: 100%;
+  text-decoration: none;
+}
+
+.menu-icon-bar a:hover {
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.menu-icon-bar-active {
+  background-color: #B0EE97;
+  border-radius: 20px;
+}
