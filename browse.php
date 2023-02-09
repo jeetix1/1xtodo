@@ -58,43 +58,65 @@ $tasks = mysqli_query($conn, $query);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Task List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <h1>Task List</h1>
-    <?php include 'menu.php'; ?>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Creation Date</th>
-            <th>Completion Date</th>
-            <th>Task</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        <?php while ($task = mysqli_fetch_assoc($tasks)) { ?>
-            <tr>
-                <td><?php echo $task['task_id']; ?></td>
-                <td><?php echo $task['created_at']; ?></td>
-                <td><?php echo $task['completed_at']; ?></td>
-                <td><?php echo $task['task']; ?></td>
-                <td><?php echo $task['status']; ?></td>
-                <td>
-                    <?php if ($task['status'] == 'incomplete') { ?>
-                        <button class="btn edit" onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
-                        <button class="btn finish" onclick="window.location.href='browse.php?fin_task=<?php echo $task['task_id']; ?>'">Finish</button>
-                    <?php } ?>
-                    <?php if ($task['status'] == 'completed') { ?>
-                        <button class="btn edit" onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
-                        <button class="btn reopen" onclick="window.location.href='browse.php?reopen_task=<?php echo $task['task_id']; ?>'">Reopen</button>
-                    <?php } ?>
 
-                    
-                </td>
+<body>
+    <div class="grid ">
+        <div class="headerbox">
+            <h1>Task List  </h1>
+        <div class="headermenu">
+            <?php include 'menu.php'; ?>
+        </div>
+    </div>
+    <div class="tasklist">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Creation Date</th>
+                <th>Completion Date</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
-        <?php } ?>
-    </table>
+            <?php while ($task = mysqli_fetch_assoc($tasks)) { ?>
+                <tr>
+                    <td>
+                        <?php echo $task['task_id']; ?>
+                    </td>
+                    <td>
+                        <?php echo $task['created_at']; ?>
+                    </td>
+                    <td>
+                        <?php echo $task['completed_at']; ?>
+                    </td>
+                    <td>
+                        <?php echo $task['task']; ?>
+                    </td>
+                    <td>
+                        <?php echo $task['status']; ?>
+                    </td>
+                    <td>
+                        <?php if ($task['status'] == 'incomplete') { ?>
+                            <button class="btn edit"
+                                onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
+                            <button class="btn finish"
+                                onclick="window.location.href='browse.php?fin_task=<?php echo $task['task_id']; ?>'">Finish</button>
+                        <?php } ?>
+                        <?php if ($task['status'] == 'completed') { ?>
+                            <button class="btn edit"
+                                onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
+                            <button class="btn reopen"
+                                onclick="window.location.href='browse.php?reopen_task=<?php echo $task['task_id']; ?>'">Reopen</button>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
 </body>
+
 </html>
