@@ -80,7 +80,8 @@ $tasks = mysqli_query($conn, $query);
                 <th>Completion Date</th>
                 <th>Task</th>
                 <th>Status</th>
-                <th style="width: 120px">Action</th>
+                <th>Action</th>
+                <!-- <th style="width: 120px" style="text-align: center;">Action</th> -->
             </tr>
             <?php while ($task = mysqli_fetch_assoc($tasks)) { ?>
                 <tr>
@@ -99,7 +100,7 @@ $tasks = mysqli_query($conn, $query);
                     <td>
                         <?php echo $task['status']; ?>
                     </td>
-                    <td>
+                    <td class="actionbtn">
                         <?php if ($task['status'] == 'incomplete') { ?>
                             <button class="btn edit"
                                 onclick="window.location.href='edit.php?edit_task=<?php echo $task['task_id']; ?>'">Edit</button>
@@ -112,7 +113,7 @@ $tasks = mysqli_query($conn, $query);
                             <button class="btn reopen"
                                 onclick="window.location.href='browse.php?reopen_task=<?php echo $task['task_id']; ?>'">Reopen</button>
                         <?php } ?>
-                    </td>
+                        </td>
                 </tr>
             <?php } ?>
         </table>

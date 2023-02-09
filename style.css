@@ -78,6 +78,10 @@ tbody th {
   padding: 10px;
 }
 
+.actionbtn {
+  text-align: right;
+}
+
 tr:nth-child(even){background-color: transparent}
 tr:nth-child(odd){background-color: #ffffff10}
 /* tr:hover{border: dashed red;} */
