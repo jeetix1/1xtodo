@@ -155,12 +155,12 @@ body {
 
 .finish {
   border-color: #000000;
-  background: #bfedd2;
+  background: #2dc26b;
   color: black;
 }
 
 .finish:hover {
-  background: #2dc26b;
+  background: #bfedd2;
 }
 
 .edit {
